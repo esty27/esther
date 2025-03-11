@@ -26,3 +26,17 @@
     padding: 10px;
     text-align: center;
     border: 2px solid #2e8b57; /* Bordure vert foncé */
+    .menu {
+        background-color: #d3f8d3; /* Vert pâle */
+        color: white; /* Texte en blanc */
+        font-family: Arial, sans-serif; /* Nouvelle police */
+    }
+    
+    .menu:hover {
+        background-color: #8fdf8f; /* Effet survol */
+    }
+    
+    .menu.active {
+        background-color: #64b864; /* Couleur de fond pour l'élément actif */
+    }
+    
