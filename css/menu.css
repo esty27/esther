@@ -1,0 +1,45 @@
+#menu {
+    background-color: #98fb98; /* Vert pâle */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+#menu {
+    background-color: #98fb98;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #2e8b57; /* Bordure vert foncé */
+}
+
+#menu a:hover {
+    color: #ffebcd;
+}
+#menu {
+    font-family: Arial, sans-serif;
+}
+#copyright {
+    background-color: #2e8b57; /* Vert foncé */
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+#copyright {
+    font-size: 14px;
+}
