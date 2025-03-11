@@ -1,0 +1,47 @@
+#menu {
+    background-color: #98fb98; /* Vert pâle */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+#menu {
+    background-color: #98fb98;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #2e8b57; /* Bordure vert foncé */
+    .menu {
+        background-color: #d3f8d3; /* Vert pâle */
+        color: white; /* Texte en blanc */
+        font-family: Arial, sans-serif; /* Nouvelle police */
+    }
+    
+    .menu:hover {
+        background-color: #8fdf8f; /* Effet survol */
+    }
+    
+    .menu.active {
+        background-color: #64b864; /* Couleur de fond pour l'élément actif */
+    }
+    .copyright {
+        background-color: #222; /* Fond sombre */
+        color: #bbb; /* Texte gris clair */
+        font-size: 14px; /* Taille de police plus petite */
+    }
+        
