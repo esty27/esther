@@ -39,4 +39,9 @@
     .menu.active {
         background-color: #64b864; /* Couleur de fond pour l'élément actif */
     }
-    
+    .copyright {
+        background-color: #222; /* Fond sombre */
+        color: #bbb; /* Texte gris clair */
+        font-size: 14px; /* Taille de police plus petite */
+    }
+        
