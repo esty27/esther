@@ -1,4 +1,4 @@
-name: List Files on Push
+name: PHP Lint and List Files
 
 on:
   push:
@@ -6,11 +6,24 @@ on:
       - mes-dates
 
 jobs:
-  list-files:
+  lint-and-list:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Install PHPCS
+        run: composer global require "squizlabs/php_codesniffer=*"
+
+      - name: Run PHPCS
+        run: ~/.composer/vendor/bin/phpcs --standard=PSR12 .
 
       - name: List files
         run: ls -la
+
