@@ -1,0 +1,79 @@
+name: Vérification d'arborescence et types de fichiers
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Vérifier la structure du projet
+        run: |
+          echo "Vérification de l'arborescence du projet..."
+          if [ ! -d "site" ] || [ ! -d "src" ]; then
+            echo "Erreur: Les répertoires 'site' et 'src' doivent exister."
+            exit 1
+          fi
+          if [ ! -d "site/img" ] || [ ! -d "site/css" ] || [ ! -d "site/js" ]; then
+            echo "Erreur: Les répertoires 'site/img', 'site/css' et 'site/js' doivent exister."
+            exit 1
+          fi
+
+      - name: Vérifier les types de fichiers dans le répertoire site
+        run: |
+          echo "Vérification des types de fichiers dans 'site'..."
+          for file in site/*; do
+            if [[ -d $file ]]; then
+              continue
+            fi
+            extension="${file##*.}"
+            if [[ $file == site/*html || $file == site/*php ]]; then
+              if [ "$extension" != "html" ] && [ "$extension" != "php" ]; then
+                echo "Erreur: Le fichier $file n'est pas un fichier .html ou .php."
+                exit 1
+              fi
+            fi
+          done
+          
+      - name: Vérifier les fichiers dans 'img'
+        run: |
+          echo "Vérification des fichiers dans 'site/img'..."
+          for file in site/img/*; do
+            extension="${file##*.}"
+            if [[ $file == site/img/* ]]; then
+              if [ "$extension" != "png" ] && [ "$extension" != "jpg" ]; then
+                echo "Erreur: Le fichier $file n'est pas un fichier .png ou .jpg."
+                exit 1
+              fi
+            fi
+          done
+
+      - name: Vérifier les fichiers dans 'css'
+        run: |
+          echo "Vérification des fichiers dans 'site/css'..."
+          for file in site/css/*; do
+            extension="${file##*.}"
+            if [[ $file == site/css/* ]]; then
+              if [ "$extension" != "css" ]; then
+                echo "Erreur: Le fichier $file n'est pas un fichier .css."
+                exit 1
+              fi
+            fi
+          done
+
+      - name: Vérifier les fichiers dans 'js'
+        run: |
+          echo "Vérification des fichiers dans 'site/js'..."
+          for file in site/js/*; do
+            extension="${file##*.}"
+            if [[ $file == site/js/* ]]; then
+              if [ "$extension" != "js" ]; then
+                echo "Erreur: Le fichier $file n'est pas un fichier .js."
+                exit 1
+              fi
+            fi
+          done
